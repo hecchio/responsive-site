@@ -1,0 +1,197 @@
+@import "compass";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+
+//fontfamily
+$baseFontFamily: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+
+//color
+$baseColor : #fffafa;
+$subColor : #A92D07;
+$keyColor : #8A7200;
+$fontColor : #3A3233;
+
+/* Base
+------------------------------------------------------------*/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: $fontColor;
+    font-size: 1.4rem;
+    font-family: $baseFontFamily;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    background-color: $baseColor;
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+    text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.wf-hannari {
+    font-family: "Hannari"; 
+}
+
+
+/* Header
+------------------------------------------------------------*/ 
+header .top {
+  background-image: url("../img/img_soba.jpg");
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Main
+------------------------------------------------------------*/
+//Common Styles
+section h1 {
+        @extend .wf-hannari;
+        font-size: 2.5rem;
+        font-weight: bold;
+}
+
+section#menu {
+    padding: 80px 0;
+    
+    h2 {
+        @extend .wf-hannari;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .container {
+        @include display-flex;
+        justify-content: space-between;
+        @include flex-direction(column);
+        width: 90%;
+        @extend .block-center;
+        
+        .box {
+            width: auto;
+            height: auto;
+            margin: 20px;
+            padding: 20px;
+            color: $baseColor;
+            background-color: $subColor;
+            text-align: left;
+            
+            .explanation {
+                margin: 20px 0;
+                @extend .text-center;
+            }
+            
+            .price {
+                @extend .text-center;
+            }
+        }
+    }   
+}
+
+section#contact {
+    padding-bottom: 50px;
+    
+    div {
+        margin-top: 20px;
+    }
+    a {
+        display: block;
+        margin: 0 auto;
+
+        width: 25px;
+        height: 25px;
+        padding: 15px;
+
+        color: $baseColor;
+        font-size: 2.7rem;
+        background-color: $subColor;
+        @include border-radius(50%);
+        
+        .fa {
+            desplay: block;
+            vertical-align: top;
+        }
+    }
+}
+
+/* Footer
+------------------------------------------------------------*/
+footer {
+    .rights {
+        @extend .text-center;
+        margin: 20px 0;
+        
+        .footer {
+            @extend .wf-hannari;
+        }
+        
+        .copy-control {
+            font-size: 1.3em;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+//PC
+@media (min-width: 769px) {
+    
+/* Header
+------------------------------------------------------------*/
+header .top {
+  background-image: url("../img/img_soba.jpg");
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Main
+------------------------------------------------------------*/
+    section#menu .container {
+          display: flex;
+          flex-direction: row;
+          
+          .box {
+              width: (90% / 3);
+              
+              .explanation {
+                  text-align: left;
+              }
+          }
+    }
+    
+    section#contact {
+        div {
+            a {
+                &:hover {
+                    background-color: darken($subColor,10%);
+                }
+            }
+        }
+    }
+
+
+/* Footer
+------------------------------------------------------------*/
+}
